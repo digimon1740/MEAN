@@ -1,0 +1,25 @@
+{
+  "name": "hrapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^1.5.2",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.7",
+    "mongoose-post-find": "0.0.2",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "populate": "node ./bin/populate_db",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC"
+}

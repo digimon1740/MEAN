@@ -1,0 +1,16 @@
+{
+  "name": "chapter11",
+  "version": "1.0.0",
+  "description": "MEAN book example",
+  "main": "app.js",
+  "dependencies": {
+    "colors": "^1.1.0",
+    "express": "^4.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bretz & Ihrig",
+  "license": "BSD"
+}
