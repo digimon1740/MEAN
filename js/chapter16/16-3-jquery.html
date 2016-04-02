@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" class="firstName" placeholder="first name"/>
+    <input type="text" class="lastName" placeholder="last name"/>
+    <button class="add">Add</button>
+
+    <table>
+    </table>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+        $(function () {
+            var $el = $('body');
+            var $firstName = $el.find('input.firstName');
+            var $lastName = $el.find('input.lastName');
+            var $table = $el.find('table:first');
+            var presidents = [{
+                first: 'Abraham',
+                last: 'Lincoln',
+            }, {
+                first: 'Andrew',
+                last: 'Johnson',
+            }, {
+                first: 'Ulysses',
+                last: 'Grant',
+            }];
+
+            presidents.forEach(function (president) {
+                addRow($table, president.first, president.last);
+            });
+
+            var $add = $el.find('button.add');
+            $add.click(function () {
+                addRow($table, $firstName.val(), $lastName.val());
+                $firstName.val('');
+                $lastName.val('');
+            });
+
+            var $remove = $el.find('button.remove');
+            $remove.click(function () {
+                $(this).parent('tr').remove();
+            });
+        });
+
+        function addRow($table, firstName, lastName) {
+            var tr = [];
+            tr.push('<td>' + firstName + '</td>');
+            tr.push('<td>' + lastName + '</td>');
+            tr.push('<td>');
+            var $removeButton = $table.find('button.remove');
+            if ($removeButton.length === 0) {
+                tr.push('<button class="remove">Remove</button>');
+            } else {
+                tr.push($removeButton.eq(0).clone(true));
+            }
+            tr.push('</td>');
+            $table.append($('<tr></tr>').append(tr));
+        }
+    </script>
+</body>
+</html>
