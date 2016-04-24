@@ -24,29 +24,29 @@ app.use(teams);
 
 // 404를 잡아 오류 처리기로 전달
 app.use(function(req, res, next) {
-	var err = new Error('Not Found');
+  var err = new Error('Not Found');
 
-	err.status = 404;
-	next(err);
+  err.status = 404;
+  next(err);
 });
 
 // 오류 처리기
 
 // 스택 추적을 출력하는 개발자용 오류 처리기
 if (app.get('env') === 'development') {
-	app.use(function(err, req, res, next) {
-		res.status(err.status || 500);
-		res.send({
-			message: err.message,
-			error: err
-		});
-	});
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.send({
+      message: err.message,
+      error: err
+    });
+  });
 }
 
 // 실제 서비스용 오류 처리기
 // 사용자에게 스택 추적을 유출하지 않는다.
 app.use(function(err, req, res, next) {
-	res.status(err.status || 500);
+  res.status(err.status || 500);
 });
 
 module.exports = app;
